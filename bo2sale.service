@@ -1,13 +1,14 @@
 [Unit]
-Description=Telegram bot "bo2sale" - барахолка для дома
+Description=Telegram Bot for Home Marketplace (bo2sale)
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python3 /root/bo2sale/bot.py
+Type=simple
 WorkingDirectory=/root/bo2sale
-Restart=always
+ExecStart=/usr/bin/python3 /root/bo2sale/bot.py
+Restart=on-failure
+RestartSec=5
 User=root
-Environment="PYTHONUNBUFFERED=1"
 
 [Install]
 WantedBy=multi-user.target
