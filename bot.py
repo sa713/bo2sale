@@ -114,11 +114,18 @@ async def cmd_my_posts(message: types.Message):
         return
 
     user_id = message.from_user.id
-    cursor.execute("SELECT id, description FROM bo2sale_posts WHERE user_id = ?", (user_id,))
+    # Берём id объявления, текст и message_id первой записи из альбома
+    cursor.execute("""
+        SELECT id, description, message_id
+        FROM bo2sale_posts
+        WHERE user_id = ?
+    """, (user_id,))
     rows = cursor.fetchall()
+
     if not rows:
         return await message.answer("У вас пока нет объявлений.")
-    for desc, message_id in rows:
+
+    for post_id, desc, message_id in rows:
         channel_link = f"https://t.me/c/{str(CHANNEL_ID)[4:]}/{message_id}"
         text = f"{desc[:100]}...\n\n{hlink('🔗 Открыть объявление', channel_link)}"
         kb = InlineKeyboardMarkup(inline_keyboard=[
@@ -310,15 +317,25 @@ def format_post(post: dict) -> str:
 async def auto_delete_old():
     while True:
         threshold = (datetime.now() - timedelta(days=AUTO_DELETE_DAYS)).strftime("%Y-%m-%d")
-        cursor.execute("SELECT id, message_id FROM bo2sale_posts WHERE post_date < ?", (threshold,))
+
+        cursor.execute("""
+            SELECT id, message_ids
+            FROM bo2sale_posts
+            WHERE post_date < ?
+        """, (threshold,))
         rows = cursor.fetchall()
-        for row in rows:
-            post_id, message_id = row
-            try:
-                await bot.delete_message(CHANNEL_ID, message_id)
-            except:
-                pass
+
+        for post_id, message_ids_str in rows:
+            message_ids = [mid for mid in (message_ids_str or "").split(",") if mid.strip()]
+
+            for mid in message_ids:
+                try:
+                    await bot.delete_message(CHANNEL_ID, int(mid))
+                except Exception as e:
+                    print(f"Не смог удалить сообщение {mid}: {e}")
+
             cursor.execute("DELETE FROM bo2sale_posts WHERE id = ?", (post_id,))
+
         conn.commit()
         await asyncio.sleep(86400)
 
