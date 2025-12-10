@@ -1,0 +1,200 @@
+2025-12-10 16:15:15,114 [INFO] Start polling
+2025-12-10 16:15:15,340 [INFO] Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:15:15,737 [INFO] Update id=766637844 is handled. Duration 257 ms by bot id=7624769819
+2025-12-10 16:15:15,741 [INFO] Update id=766637845 is handled. Duration 258 ms by bot id=7624769819
+2025-12-10 16:15:39,500 [INFO] Start polling
+2025-12-10 16:15:39,679 [INFO] Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:15:49,939 [INFO] Update id=766637846 is handled. Duration 248 ms by bot id=7624769819
+2025-12-10 16:15:54,238 [INFO] Start polling
+2025-12-10 16:15:54,468 [INFO] Update id=766637847 is handled. Duration 358 ms by bot id=7624769819
+2025-12-10 16:15:54,802 [INFO] Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:15:54,850 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:15:54,852 [WARNING] Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7624769819)
+2025-12-10 16:15:59,072 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:15:59,075 [WARNING] Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7624769819)
+2025-12-10 16:15:59,212 [INFO] Connection established (tryings = 1, bot id = 7624769819)
+2025-12-10 16:15:59,294 [INFO] Update id=766637848 is handled. Duration 77 ms by bot id=7624769819
+2025-12-10 16:16:00,120 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:00,120 [WARNING] Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7624769819)
+2025-12-10 16:16:02,788 [INFO] Connection established (tryings = 1, bot id = 7624769819)
+2025-12-10 16:16:03,081 [INFO] Update id=766637849 is handled. Duration 290 ms by bot id=7624769819
+2025-12-10 16:16:04,165 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:04,165 [WARNING] Sleep for 1.347210 seconds and try again... (tryings = 1, bot id = 7624769819)
+2025-12-10 16:16:04,366 [INFO] Update id=766637850 is handled. Duration 59 ms by bot id=7624769819
+2025-12-10 16:16:05,560 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:05,562 [WARNING] Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7624769819)
+2025-12-10 16:16:09,493 [INFO] Connection established (tryings = 1, bot id = 7624769819)
+2025-12-10 16:16:09,582 [INFO] Update id=766637851 is handled. Duration 86 ms by bot id=7624769819
+2025-12-10 16:16:09,607 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:09,608 [WARNING] Sleep for 1.614555 seconds and try again... (tryings = 2, bot id = 7624769819)
+2025-12-10 16:16:11,269 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:11,271 [WARNING] Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7624769819)
+2025-12-10 16:16:12,193 [INFO] Connection established (tryings = 3, bot id = 7624769819)
+2025-12-10 16:16:12,493 [INFO] Update id=766637852 is handled. Duration 298 ms by bot id=7624769819
+2025-12-10 16:16:14,542 [INFO] Connection established (tryings = 1, bot id = 7624769819)
+2025-12-10 16:16:14,903 [INFO] Update id=766637853 is handled. Duration 358 ms by bot id=7624769819
+2025-12-10 16:16:15,317 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:15,317 [WARNING] Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7624769819)
+2025-12-10 16:16:16,364 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:16,365 [WARNING] Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7624769819)
+2025-12-10 16:16:19,217 [INFO] Connection established (tryings = 1, bot id = 7624769819)
+2025-12-10 16:16:19,294 [INFO] Update id=766637854 is handled. Duration 76 ms by bot id=7624769819
+2025-12-10 16:16:20,410 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:20,410 [WARNING] Sleep for 1.183312 seconds and try again... (tryings = 1, bot id = 7624769819)
+2025-12-10 16:16:21,643 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:21,644 [WARNING] Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7624769819)
+2025-12-10 16:16:25,690 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:25,693 [WARNING] Sleep for 1.665600 seconds and try again... (tryings = 2, bot id = 7624769819)
+2025-12-10 16:16:25,720 [INFO] Connection established (tryings = 1, bot id = 7624769819)
+2025-12-10 16:16:25,760 [INFO] Update id=766637855 is handled. Duration 33 ms by bot id=7624769819
+2025-12-10 16:16:25,762 [INFO] Update id=766637856 is handled. Duration 34 ms by bot id=7624769819
+2025-12-10 16:16:25,762 [INFO] Update id=766637857 is handled. Duration 8 ms by bot id=7624769819
+2025-12-10 16:16:27,408 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:27,410 [WARNING] Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7624769819)
+2025-12-10 16:16:31,456 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:31,457 [WARNING] Sleep for 2.343104 seconds and try again... (tryings = 3, bot id = 7624769819)
+2025-12-10 16:16:32,631 [INFO] Connection established (tryings = 1, bot id = 7624769819)
+2025-12-10 16:16:32,737 [INFO] Update id=766637858 is handled. Duration 100 ms by bot id=7624769819
+2025-12-10 16:16:33,849 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:33,850 [WARNING] Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7624769819)
+2025-12-10 16:16:35,451 [INFO] Connection established (tryings = 1, bot id = 7624769819)
+2025-12-10 16:16:35,581 [INFO] Update id=766637859 is handled. Duration 126 ms by bot id=7624769819
+2025-12-10 16:16:37,897 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:37,897 [WARNING] Sleep for 3.131461 seconds and try again... (tryings = 4, bot id = 7624769819)
+2025-12-10 16:16:39,176 [INFO] Update id=766637860 is handled. Duration 69 ms by bot id=7624769819
+2025-12-10 16:16:40,671 [INFO] Update id=766637861 is handled. Duration 85 ms by bot id=7624769819
+2025-12-10 16:16:41,074 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:41,076 [WARNING] Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7624769819)
+2025-12-10 16:16:45,120 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:45,121 [WARNING] Sleep for 4.008022 seconds and try again... (tryings = 5, bot id = 7624769819)
+2025-12-10 16:16:49,178 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:49,178 [WARNING] Sleep for 1.303967 seconds and try again... (tryings = 1, bot id = 7624769819)
+2025-12-10 16:16:49,420 [INFO] Connection established (tryings = 6, bot id = 7624769819)
+2025-12-10 16:16:49,638 [INFO] Update id=766637862 is handled. Duration 215 ms by bot id=7624769819
+2025-12-10 16:16:53,528 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:53,528 [WARNING] Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7624769819)
+2025-12-10 16:16:54,573 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:54,573 [WARNING] Sleep for 1.647840 seconds and try again... (tryings = 2, bot id = 7624769819)
+2025-12-10 16:16:59,268 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:16:59,268 [WARNING] Sleep for 1.161225 seconds and try again... (tryings = 1, bot id = 7624769819)
+2025-12-10 16:17:00,485 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:17:00,486 [WARNING] Sleep for 2.100318 seconds and try again... (tryings = 3, bot id = 7624769819)
+2025-12-10 16:17:05,631 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:17:05,632 [WARNING] Sleep for 1.458665 seconds and try again... (tryings = 2, bot id = 7624769819)
+2025-12-10 16:17:07,138 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:17:07,138 [WARNING] Sleep for 2.723296 seconds and try again... (tryings = 4, bot id = 7624769819)
+2025-12-10 16:17:12,911 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:17:12,911 [WARNING] Sleep for 1.868476 seconds and try again... (tryings = 3, bot id = 7624769819)
+2025-12-10 16:17:14,822 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:17:14,823 [WARNING] Sleep for 3.526497 seconds and try again... (tryings = 5, bot id = 7624769819)
+2025-12-10 16:17:18,398 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:17:18,398 [WARNING] Sleep for 2.565558 seconds and try again... (tryings = 4, bot id = 7624769819)
+2025-12-10 16:17:24,015 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:17:24,017 [WARNING] Sleep for 4.645065 seconds and try again... (tryings = 6, bot id = 7624769819)
+2025-12-10 16:17:28,710 [ERROR] Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-12-10 16:17:28,710 [WARNING] Sleep for 3.422771 seconds and try again... (tryings = 5, bot id = 7624769819)
+2025-12-10 16:17:29,399 [WARNING] Received SIGINT signal
+2025-12-10 16:17:29,400 [INFO] Polling stopped for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:17:29,400 [INFO] Polling stopped
+2025-12-10 16:17:38,712 [INFO] Connection established (tryings = 7, bot id = 7624769819)
+2025-12-10 16:19:02,324 [INFO] Start polling
+2025-12-10 16:19:02,543 [INFO] Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:21:05,769 [WARNING] Received SIGTERM signal
+2025-12-10 16:21:05,773 [INFO] Polling stopped for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:21:05,774 [INFO] Polling stopped
+2025-12-10 16:21:57,504 [INFO] Start polling
+2025-12-10 16:21:57,683 [INFO] Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:22:06,282 [INFO] Update id=766637863 is handled. Duration 197 ms by bot id=7624769819
+2025-12-10 16:22:09,815 [INFO] Update id=766637864 is handled. Duration 104 ms by bot id=7624769819
+2025-12-10 16:22:14,074 [INFO] Update id=766637865 is handled. Duration 82 ms by bot id=7624769819
+2025-12-10 16:22:15,609 [INFO] Update id=766637866 is handled. Duration 73 ms by bot id=7624769819
+2025-12-10 16:22:17,732 [INFO] Update id=766637867 is not handled. Duration 4 ms by bot id=7624769819
+2025-12-10 16:22:20,441 [INFO] Update id=766637868 is handled. Duration 118 ms by bot id=7624769819
+2025-12-10 16:22:22,367 [INFO] Update id=766637869 is handled. Duration 132 ms by bot id=7624769819
+2025-12-10 16:22:37,591 [INFO] Update id=766637870 is handled. Duration 223 ms by bot id=7624769819
+2025-12-10 16:22:41,507 [INFO] Update id=766637871 is handled. Duration 3 ms by bot id=7624769819
+2025-12-10 16:22:41,507 [INFO] Update id=766637872 is handled. Duration 3 ms by bot id=7624769819
+2025-12-10 16:22:41,508 [INFO] Update id=766637873 is handled. Duration 3 ms by bot id=7624769819
+2025-12-10 16:22:44,153 [INFO] Update id=766637874 is handled. Duration 86 ms by bot id=7624769819
+2025-12-10 16:22:47,787 [INFO] Update id=766637875 is handled. Duration 156 ms by bot id=7624769819
+2025-12-10 16:22:50,664 [INFO] Update id=766637876 is handled. Duration 82 ms by bot id=7624769819
+2025-12-10 16:22:52,166 [INFO] Update id=766637877 is handled. Duration 74 ms by bot id=7624769819
+2025-12-10 16:22:54,568 [INFO] Update id=766637878 is handled. Duration 204 ms by bot id=7624769819
+2025-12-10 16:23:01,260 [WARNING] Received SIGINT signal
+2025-12-10 16:23:01,261 [INFO] Polling stopped for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:23:01,262 [INFO] Polling stopped
+2025-12-10 16:28:43,888 [INFO] Start polling
+2025-12-10 16:28:44,072 [INFO] Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:28:54,685 [INFO] Update id=766637879 is handled. Duration 258 ms by bot id=7624769819
+2025-12-10 16:28:56,918 [INFO] Update id=766637880 is handled. Duration 181 ms by bot id=7624769819
+2025-12-10 16:28:59,680 [INFO] Update id=766637881 is handled. Duration 95 ms by bot id=7624769819
+2025-12-10 16:29:10,463 [INFO] Update id=766637882 is handled. Duration 2 ms by bot id=7624769819
+2025-12-10 16:29:10,464 [INFO] Update id=766637883 is handled. Duration 3 ms by bot id=7624769819
+2025-12-10 16:29:10,467 [INFO] Update id=766637884 is handled. Duration 5 ms by bot id=7624769819
+2025-12-10 16:29:12,947 [INFO] Update id=766637885 is handled. Duration 87 ms by bot id=7624769819
+2025-12-10 16:29:17,068 [INFO] Update id=766637886 is handled. Duration 121 ms by bot id=7624769819
+2025-12-10 16:29:20,828 [INFO] Update id=766637887 is handled. Duration 110 ms by bot id=7624769819
+2025-12-10 16:29:22,115 [INFO] Update id=766637888 is handled. Duration 157 ms by bot id=7624769819
+2025-12-10 16:29:25,245 [INFO] Update id=766637889 is handled. Duration 434 ms by bot id=7624769819
+2025-12-10 16:29:42,999 [INFO] Update id=766637890 is handled. Duration 210 ms by bot id=7624769819
+2025-12-10 16:29:47,629 [INFO] Update id=766637891 is handled. Duration 415 ms by bot id=7624769819
+2025-12-10 16:29:51,310 [INFO] Update id=766637892 is handled. Duration 312 ms by bot id=7624769819
+2025-12-10 16:30:03,425 [WARNING] Received SIGINT signal
+2025-12-10 16:30:03,427 [INFO] Polling stopped for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:30:03,428 [INFO] Polling stopped
+2025-12-10 16:40:44,600 [INFO] Start polling
+2025-12-10 16:40:44,810 [INFO] Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:40:44,932 [INFO] Update id=766637893 is not handled. Duration 3 ms by bot id=7624769819
+2025-12-10 16:40:51,404 [INFO] Update id=766637894 is handled. Duration 180 ms by bot id=7624769819
+2025-12-10 16:40:57,990 [INFO] Update id=766637895 is handled. Duration 122 ms by bot id=7624769819
+2025-12-10 16:41:02,444 [INFO] Update id=766637896 is handled. Duration 220 ms by bot id=7624769819
+2025-12-10 16:41:09,084 [INFO] Update id=766637897 is handled. Duration 1 ms by bot id=7624769819
+2025-12-10 16:41:09,084 [INFO] Update id=766637898 is handled. Duration 1 ms by bot id=7624769819
+2025-12-10 16:41:09,085 [INFO] Update id=766637899 is handled. Duration 1 ms by bot id=7624769819
+2025-12-10 16:41:12,620 [INFO] Update id=766637900 is handled. Duration 81 ms by bot id=7624769819
+2025-12-10 16:41:14,616 [INFO] Update id=766637901 is handled. Duration 190 ms by bot id=7624769819
+2025-12-10 16:41:17,900 [INFO] Update id=766637902 is handled. Duration 77 ms by bot id=7624769819
+2025-12-10 16:41:19,395 [INFO] Update id=766637903 is handled. Duration 224 ms by bot id=7624769819
+2025-12-10 16:41:23,706 [INFO] Update id=766637904 is handled. Duration 345 ms by bot id=7624769819
+2025-12-10 16:41:59,436 [INFO] Update id=766637905 is handled. Duration 277 ms by bot id=7624769819
+2025-12-10 16:42:04,283 [INFO] Update id=766637906 is handled. Duration 286 ms by bot id=7624769819
+2025-12-10 16:42:12,612 [WARNING] Received SIGINT signal
+2025-12-10 16:42:12,613 [INFO] Polling stopped for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:42:12,613 [INFO] Polling stopped
+/root/bo2sale/bot.py:42: DeprecationWarning: Passing `parse_mode`, `disable_web_page_preview` or `protect_content` to Bot initializer is deprecated. This arguments will be removed in 3.5.0 version
+Use `default=DefaultBotProperties(...)` instead.
+  bot = Bot(token=API_TOKEN, parse_mode=ParseMode.HTML)
+2025-12-10 16:45:20,767 [INFO] Start polling
+2025-12-10 16:45:20,767 [INFO] Start polling
+2025-12-10 16:45:20,961 [INFO] Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:45:20,961 [INFO] Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+2025-12-10 16:45:21,069 [INFO] Update id=766637907 is not handled. Duration 3 ms by bot id=7624769819
+2025-12-10 16:45:21,069 [INFO] Update id=766637907 is not handled. Duration 3 ms by bot id=7624769819
+2025-12-10 16:45:21,069 [INFO] Update id=766637908 is not handled. Duration 3 ms by bot id=7624769819
+2025-12-10 16:45:21,069 [INFO] Update id=766637908 is not handled. Duration 3 ms by bot id=7624769819
+2025-12-10 16:46:00,990 [INFO] Update id=766637909 is handled. Duration 338 ms by bot id=7624769819
+2025-12-10 16:46:00,990 [INFO] Update id=766637909 is handled. Duration 338 ms by bot id=7624769819
+2025-12-10 16:46:05,169 [INFO] Update id=766637910 is handled. Duration 76 ms by bot id=7624769819
+2025-12-10 16:46:05,169 [INFO] Update id=766637910 is handled. Duration 76 ms by bot id=7624769819
+2025-12-10 16:46:09,163 [INFO] Update id=766637911 is handled. Duration 86 ms by bot id=7624769819
+2025-12-10 16:46:09,163 [INFO] Update id=766637911 is handled. Duration 86 ms by bot id=7624769819
+2025-12-10 16:46:10,884 [INFO] Update id=766637912 is handled. Duration 97 ms by bot id=7624769819
+2025-12-10 16:46:10,884 [INFO] Update id=766637912 is handled. Duration 97 ms by bot id=7624769819
+2025-12-10 16:46:13,370 [INFO] Update id=766637913 is handled. Duration 178 ms by bot id=7624769819
+2025-12-10 16:46:13,370 [INFO] Update id=766637913 is handled. Duration 178 ms by bot id=7624769819
+2025-12-10 16:46:14,514 [INFO] Update id=766637914 is handled. Duration 79 ms by bot id=7624769819
+2025-12-10 16:46:14,514 [INFO] Update id=766637914 is handled. Duration 79 ms by bot id=7624769819
+2025-12-10 16:46:16,370 [INFO] Update id=766637915 is handled. Duration 370 ms by bot id=7624769819
+2025-12-10 16:46:16,370 [INFO] Update id=766637915 is handled. Duration 370 ms by bot id=7624769819
+2025-12-10 16:46:19,165 [INFO] Update id=766637916 is handled. Duration 260 ms by bot id=7624769819
+2025-12-10 16:46:19,165 [INFO] Update id=766637916 is handled. Duration 260 ms by bot id=7624769819
+2025-12-10 16:46:20,424 [INFO] Update id=766637917 is handled. Duration 219 ms by bot id=7624769819
+2025-12-10 16:46:20,424 [INFO] Update id=766637917 is handled. Duration 219 ms by bot id=7624769819
+2025-12-10 16:46:48,021 [INFO] Update id=766637918 is not handled. Duration 0 ms by bot id=7624769819
+2025-12-10 16:46:48,021 [INFO] Update id=766637918 is not handled. Duration 0 ms by bot id=7624769819
+2025-12-10 16:51:47,696 [INFO] Update id=766637919 is not handled. Duration 2 ms by bot id=7624769819
+2025-12-10 16:51:47,696 [INFO] Update id=766637919 is not handled. Duration 2 ms by bot id=7624769819
+2025-12-10 16:55:47,718 [INFO] Update id=766637920 is not handled. Duration 0 ms by bot id=7624769819
+2025-12-10 16:55:47,718 [INFO] Update id=766637920 is not handled. Duration 0 ms by bot id=7624769819
+2025-12-10 16:56:15,537 [INFO] Update id=766637921 is not handled. Duration 0 ms by bot id=7624769819
+2025-12-10 16:56:15,537 [INFO] Update id=766637921 is not handled. Duration 0 ms by bot id=7624769819

@@ -1,37 +1,51 @@
+#!/usr/bin/env python3
+"""
+init_db.py — инициализация базы данных для бота барахолки.
+
+Создаёт файл базы данных и таблицу bo2sale_posts,
+если они ещё не существуют. Данные в существующей базе
+не трогаются.
+"""
+
 import sqlite3
-import os
 
-DB_PATH = "bo2sale.db"
+try:
+    # Предпочитаем имя БД из конфига
+    from config import DB_NAME
+except ImportError:
+    # Запасной вариант
+    DB_NAME = "bo2sale.db"
 
-def recreate_database():
-    if os.path.exists(DB_PATH):
-        print(f"Удаляю старую базу: {DB_PATH}")
-        os.remove(DB_PATH)
 
-    conn = sqlite3.connect(DB_PATH)
-    cursor = conn.cursor()
+CREATE_TABLE_SQL = """
+CREATE TABLE IF NOT EXISTS bo2sale_posts (
+    id INTEGER PRIMARY KEY,
+    user_id INTEGER,
+    username TEXT,
+    full_name TEXT,
+    description TEXT,
+    price TEXT,
+    pickup TEXT,
+    category TEXT,
+    photo_ids TEXT,
+    post_date TEXT,
+    message_id INTEGER,
+    message_ids TEXT
+);
+"""
 
-    print("Создаю таблицу bo2sale_posts...")
 
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS bo2sale_posts (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER,
-            username TEXT,
-            description TEXT,
-            photos TEXT,
-            category TEXT,
-            price TEXT,
-            location TEXT,
-            confirmed INTEGER,
-            message_id INTEGER,
-            post_date INTEGER
-        );
-    """)
+def init_db(db_name: str = DB_NAME) -> None:
+    """Создаёт базу данных и таблицу объявлений, если их ещё нет."""
+    conn = sqlite3.connect(db_name)
+    try:
+        cursor = conn.cursor()
+        cursor.execute(CREATE_TABLE_SQL)
+        conn.commit()
+        print(f"[OK] База данных '{db_name}' и таблица 'bo2sale_posts' готовы.")
+    finally:
+        conn.close()
 
-    conn.commit()
-    conn.close()
-    print("Готово. База данных создана.")
 
 if __name__ == "__main__":
-    recreate_database()
+    init_db()

@@ -2,10 +2,10 @@
 
 # Telegram
 API_TOKEN = "7624769819:AAG19vrWfK0H4yx8JZrbhOUDV_j58OMLFl4"
-#CHANNEL_ID = -1002408200636  # ID канала, куда публикуются объявления
 CHANNEL_ID = -1002841352256  # ID канала, куда публикуются объявления
-#ALLOWED_CHAT_ID = -4925831602  # ID чата, в котором должен состоять пользователь
+#CHANNEL_ID = -1003338275679  # ID TEST канала, куда публикуются объявления
 ALLOWED_CHAT_ID = -1001641663327  # ID чата, в котором должен состоять пользователь
+#ALLOWED_CHAT_ID = -4925831602  # ID TEST чата, в котором должен состоять пользователь
 
 # Базовая информация
 MAX_DESCRIPTION_LENGTH = 4000
@@ -14,8 +14,8 @@ AUTO_DELETE_DAYS = 30  # 30 дней
 AUTO_DELETE_SECONDS = 30 * 24 * 60 * 60
 
 DATABASE_PATH = "bo2sale.db"
+DB_NAME = DATABASE_PATH
 POST_EXPIRATION_DAYS = 30  # или сколько нужно
-DB_NAME = "bo2sale.db"
 
 # Категории товаров
 CATEGORIES = [
