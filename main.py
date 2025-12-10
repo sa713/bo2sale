@@ -114,13 +114,17 @@ async def publish_post(callback: types.CallbackQuery):
         await callback.answer("Сессия устарела.")
         return
 
-    text = (
-        f"<b>{session['category']}</b>\n"
-        f"<b>Где забирать:</b> {session['pickup']}\n"
-        f"<b>Цена:</b> {session['price']}\n\n"
-        f"{session['description']}\n\n"
-        f"Автор: @{callback.from_user.username or 'без ника'}"
-    )
+author_name = callback.from_user.full_name
+author_id = callback.from_user.id
+
+text = (
+    f"<b>{session['category']}</b>\n"
+    f"<b>Где забирать:</b> {session['pickup']}\n"
+    f"<b>Цена:</b> {session['price']}\n\n"
+    f"{session['description']}\n\n"
+    f"✍️ Автор: <a href='tg://user?id={author_id}'>{author_name}</a>"
+)
+
     media_group = [types.InputMediaPhoto(media=pid) for pid in session["photos"][:10]]
     msg_ids = []
 
@@ -144,9 +148,9 @@ async def publish_post(callback: types.CallbackQuery):
     set_channel_message_id(post_id, msg.message_id)
 
     # Кнопка удаления
-    delete_kb = InlineKeyboardMarkup()
-    delete_kb.add(InlineKeyboardButton("❌ Удалить объявление", callback_data=f"delete_{msg.message_id}"))
-    await bot.send_message(callback.from_user.id, "Объявление опубликовано:", reply_markup=delete_kb)
+#    delete_kb = InlineKeyboardMarkup()
+#    delete_kb.add(InlineKeyboardButton("❌ Удалить объявление", callback_data=f"delete_{msg.message_id}"))
+#    await bot.send_message(callback.from_user.id, "Объявление опубликовано:", reply_markup=delete_kb)
 
     # Автоудаление
     if AUTO_DELETE_SECONDS > 0:

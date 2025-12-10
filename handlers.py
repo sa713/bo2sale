@@ -1,240 +1,157 @@
 from aiogram import Router, F
-from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import (
+    Message, CallbackQuery,
+    InlineKeyboardMarkup, InlineKeyboardButton,
+    InputMediaPhoto
+)
 from aiogram.enums import ContentType
-from aiogram.filters import Text
+from aiogram.filters import Command
 import sqlite3
 import logging
-
-from config import (
-    DATABASE_PATH,
-    CHANNEL_ID,
-    ALLOWED_CHAT_ID,
-    PICKUP_LOCATIONS,
-    CATEGORIES,
-    POST_EXPIRATION_DAYS
-)
+from config import pickup_locations
+from keyboards import category_keyboard, pickup_keyboard
+from utils import save_post, delete_post, check_membership, format_post
 
 router = Router()
 
-# Состояния пользователя - временно хранить вводимые данные
 user_data = {}
 
-# Проверка, состоит ли пользователь в нужном чате
-async def check_membership(bot, user_id):
-    try:
-        member = await bot.get_chat_member(ALLOWED_CHAT_ID, user_id)
-        if member.status in ("left", "kicked"):
-            return False
-        return True
-    except Exception:
-        return False
-
-# Команда /start
-@router.message(F.text == "/start")
+@router.message(Command("start"))
 async def cmd_start(message: Message):
-    await message.answer("👋 Привет! Отправь описание товара для публикации на барахолке.")
+    await message.answer("👋 Привет! Отправь описание товара (до 4000 символов).")
 
-# Обработка описания товара (первое сообщение)
-@router.message()
-async def handle_description(message: Message):
+
+@router.message(F.text)
+async def handle_text(message: Message):
     user_id = message.from_user.id
     bot = message.bot
+    text = message.text.strip()
 
-    if not await check_membership(bot, user_id):
-        await message.reply("❌ Для публикации товара нужно быть участником чата.")
-        return
+    step = user_data.get(user_id, {}).get("step")
 
-    text = message.text
-    if not text or len(text) > 4000:
-        await message.reply("❌ Описание не должно быть пустым и не более 4000 символов.")
-        return
+    if step is None or step == "description":
+        if not await check_membership(bot, user_id):
+            await message.reply("❌ Для публикации товара нужно быть участником чата.")
+            return
 
-    user_data[user_id] = {
-        "description": text,
-        "photos": [],
-        "category": None,
-        "price": None,
-        "pickup": None,
-        "message_id": message.message_id,
-        "chat_id": message.chat.id,
-    }
-    await message.answer("📸 Теперь отправь фотографии товара (до 10 штук).")
+        if not text or len(text) > 4000:
+            await message.reply("❌ Описание не должно быть пустым и не более 4000 символов.")
+            return
 
-# Обработка фотографий
-@router.message(F.content_type == ContentType.PHOTO)
-async def handle_photos(message: Message):
-    user_id = message.from_user.id
-    if user_id not in user_data:
-        await message.reply("❌ Сначала отправьте описание товара.")
-        return
-    photos = user_data[user_id]["photos"]
-    if len(photos) >= 10:
-        await message.reply("❌ Максимум 10 фотографий.")
-        return
-    file_id = message.photo[-1].file_id
-    photos.append(file_id)
-    await message.reply(f"✅ Фото добавлено. Сейчас у вас {len(photos)} фото.")
-    if len(photos) == 10:
-        await message.answer("📋 Теперь выберите категорию товара:", reply_markup=category_keyboard())
+        user_data[user_id] = {
+            "user_id": user_id,
+            "username": message.from_user.username,
+            "step": "photos",
+            "description": text,
+            "photos": [],
+            "category": None,
+            "price": None,
+            "pickup": None,
+            "message_id": message.message_id,
+            "chat_id": message.chat.id,
+        }
+        await message.answer("📸 Теперь отправь фотографии товара (до 10 штук). После — нажми «✅ Готово».",
+                             reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+                                 [InlineKeyboardButton(text="✅ Готово", callback_data="photos_done")]
+                             ]))
 
-def category_keyboard():
-    buttons = [
-        [InlineKeyboardButton(text=cat, callback_data=f"category:{cat}")]
-        for cat in CATEGORIES
-    ]
-    return InlineKeyboardMarkup(inline_keyboard=buttons)
+    elif step == "price":
+        user_data[user_id]["price"] = text
+        user_data[user_id]["step"] = "pickup"
+        await message.answer("📍 Укажи место получения товара:", reply_markup=pickup_keyboard())
 
-@router.callback_query(Text(startswith="category:"))
-async def category_chosen(callback: CallbackQuery):
-    user_id = callback.from_user.id
-    if user_id not in user_data:
-        await callback.answer("❌ Сначала отправьте описание товара.")
-        return
-    category = callback.data.split(":", 1)[1]
-    if category not in CATEGORIES:
-        await callback.answer("❌ Неверная категория.")
-        return
-    user_data[user_id]["category"] = category
-    await callback.message.edit_text(f"Категория выбрана: <b>{category}</b>\n\nТеперь укажите цену или подарок за товар:")
-    await callback.answer()
-
-# Обработка цены
-@router.message()
-async def handle_price(message: Message):
-    user_id = message.from_user.id
-    if user_id not in user_data:
-        # Игнорируем сообщения, если пользователь не в процессе
-        return
-    if user_data[user_id]["category"] is None:
-        # Ждем пока выберут категорию
-        return
-    if user_data[user_id]["price"] is not None:
-        # Цена уже указана - ждем выбор места получения
-        return
-
-    price = message.text.strip()
-    if len(price) == 0 or len(price) > 100:
-        await message.reply("❌ Цена должна быть не пустой и не длиннее 100 символов.")
-        return
-
-    user_data[user_id]["price"] = price
-    await message.answer("📍 Теперь выберите, где забирать товар:", reply_markup=pickup_keyboard())
-
-def pickup_keyboard():
-    buttons = [
-        [InlineKeyboardButton(text=loc, callback_data=f"pickup:{loc}")]
-        for loc in PICKUP_LOCATIONS
-    ]
-    return InlineKeyboardMarkup(inline_keyboard=buttons)
-
-@router.callback_query(Text(startswith="pickup:"))
-async def pickup_chosen(callback: CallbackQuery):
-    user_id = callback.from_user.id
-    if user_id not in user_data:
-        await callback.answer("❌ Сначала отправьте описание товара.")
-        return
-    pickup = callback.data.split(":", 1)[1]
-    if pickup not in PICKUP_LOCATIONS:
-        await callback.answer("❌ Неверное место получения.")
-        return
-    user_data[user_id]["pickup"] = pickup
-
-    data = user_data[user_id]
-
-    # Собираем итоговое сообщение
-    text = (
-        f"<b>Описание:</b>\n{data['description']}\n\n"
-        f"<b>Категория:</b> {data['category']}\n"
-        f"<b>Цена:</b> {data['price']}\n"
-        f"<b>Где забирать:</b> {data['pickup']}\n"
-        f"<b>Автор:</b> @{callback.from_user.username or callback.from_user.full_name}"
-    )
-
-    media = []
-    for file_id in data["photos"]:
-        media.append({"type": "photo", "media": file_id})
-
-    confirm_kb = InlineKeyboardMarkup(inline_keyboard=[
-        [
-            InlineKeyboardButton(text="✅ Подтвердить", callback_data="confirm_post"),
-            InlineKeyboardButton(text="❌ Отменить", callback_data="cancel_post")
-        ]
-    ])
-
-    # Сохраня в user_data для публикации
-    user_data[user_id]["final_text"] = text
-    user_data[user_id]["confirm_kb"] = confirm_kb
-
-    # Если есть фото — отправляем альбом, иначе просто сообщение
-    if len(media) > 0:
-        await callback.message.answer_media_group(media)
-    await callback.message.answer(text, reply_markup=confirm_kb)
-
-    await callback.answer()
-
-@router.callback_query(Text(startswith="confirm_post"))
-async def confirm_post(callback: CallbackQuery):
-    user_id = callback.from_user.id
-    if user_id not in user_data:
-        await callback.answer("❌ Нет данных для публикации.")
-        return
-
-    data = user_data[user_id]
-    bot = callback.bot
-
-    # Сохраняем объявление в БД
-    conn = sqlite3.connect(DATABASE_PATH)
-    c = conn.cursor()
-
-    c.execute("""
-    INSERT INTO bo2sale_ads
-    (user_id, username, description, category, price, pickup, photos, created_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))
-    """, (
-        user_id,
-        callback.from_user.username or "",
-        data["description"],
-        data["category"],
-        data["price"],
-        data["pickup"],
-        ",".join(data["photos"])
-    ))
-    ad_id = c.lastrowid
-    conn.commit()
-    conn.close()
-
-    # Формируем сообщение для канала
-    text = data["final_text"] + f"\n\nID объявления: {ad_id}"
-
-    media = []
-    for file_id in data["photos"]:
-        media.append({"type": "photo", "media": file_id})
-
-    # Отправляем в канал (альбом если есть фото)
-    if len(media) > 0:
-        if len(media) == 1:
-            await bot.send_photo(CHANNEL_ID, media[0]["media"], caption=text)
+    elif step == "photos":
+        if text == "✅ Готово":
+            await handle_photos_done(message)
         else:
-            await bot.send_media_group(CHANNEL_ID, media)
-            await bot.send_message(CHANNEL_ID, text)
+            await message.answer("❌ Отправь фотографии товара или нажми «✅ Готово».")
+
     else:
-        await bot.send_message(CHANNEL_ID, text)
+        await message.answer("❌ Пожалуйста, следуй шагам: описание → фото → категория → цена → место получения.")
 
-    # Запоминаем ID сообщения канала для удаления
-    # Для этого нужно получить message_id после отправки
-    # Поскольку send_media_group не возвращает message, добавим простое упрощение:
-    # — не будем сейчас реализовывать точное привязывание, это можно улучшить
 
-    # Очистка данных пользователя
-    user_data.pop(user_id, None)
+@router.message(F.content_type == ContentType.PHOTO)
+async def handle_photo(message: Message):
+    user_id = message.from_user.id
 
-    await callback.message.edit_text("✅ Объявление опубликовано!")
-    await callback.answer()
+    if user_id not in user_data or user_data[user_id].get("step") != "photos":
+        return
 
-@router.callback_query(Text(startswith="cancel_post"))
-async def cancel_post(callback: CallbackQuery):
+    if "photos" not in user_data[user_id]:
+        user_data[user_id]["photos"] = []
+
+    if len(user_data[user_id]["photos"]) >= 10:
+        await message.answer("❌ Можно добавить не более 10 фотографий.")
+        return
+
+    photo_id = message.photo[-1].file_id
+    user_data[user_id]["photos"].append(photo_id)
+
+    if len(user_data[user_id]["photos"]) == 1:
+        await message.answer("✅ Фотография получена. Добавь ещё или нажми «✅ Готово».",
+                             reply_markup=InlineKeyboardMarkup(inline_keyboard=[
+                                 [InlineKeyboardButton(text="✅ Готово", callback_data="photos_done")]
+                             ]))
+    else:
+        await message.answer(f"✅ Добавлено фото {len(user_data[user_id]['photos'])}/10.")
+
+
+@router.callback_query(F.data == "photos_done")
+async def handle_photos_done(callback: CallbackQuery):
     user_id = callback.from_user.id
-    if user_id in user_data:
-        user_data.pop(user_id)
-    await callback.message.edit_text("❌ Публикация отменена.")
-    await callback.answer()
+    data = user_data.get(user_id)
+
+    if not data or data.get("step") != "photos":
+        await callback.answer("Сначала отправьте фотографии.")
+        return
+
+    if not data.get("photos"):
+        await callback.answer("📸 Нужно отправить хотя бы одну фотографию.")
+        return
+
+    user_data[user_id]["step"] = "category"
+    await callback.message.answer("📂 Выбери категорию:", reply_markup=category_keyboard())
+
+
+@router.callback_query(F.data.startswith("category:"))
+async def handle_category(callback: CallbackQuery):
+    user_id = callback.from_user.id
+    category = callback.data.split("category:")[1]
+    user_data[user_id]["category"] = category
+    user_data[user_id]["step"] = "price"
+    await callback.message.answer("💸 Укажи цену товара (можно текстом: «бесплатно», «по договорённости» и т.д.).")
+
+
+@router.callback_query(F.data.startswith("pickup:"))
+async def handle_pickup(callback: CallbackQuery):
+    user_id = callback.from_user.id
+    pickup = callback.data.split("pickup:")[1]
+
+    if pickup not in pickup_locations:
+        await callback.answer("❌ Некорректное место.")
+        return
+
+    user_data[user_id]["pickup"] = pickup
+    user_data[user_id]["step"] = "done"
+
+    post_text = format_post(user_data[user_id])
+    photos = user_data[user_id]["photos"]
+
+    media = [InputMediaPhoto(media=photos[0], caption=post_text)]
+    for photo in photos[1:10]:
+        media.append(InputMediaPhoto(media=photo))
+
+    post_data = {
+        "user_id": user_id,
+        "photos": photos,
+        "pickup": user_data[user_id]["pickup"],
+        "category": user_data[user_id]["category"],
+        "price": user_data[user_id]["price"],
+        "description": user_data[user_id]["description"],
+        # "username": user_data[user_id].get("username"),
+    }
+    post_id = await save_post(post_data, callback.bot)
+
+    await callback.message.answer("🎉 Твое объявление опубликовано!")
+
+    del user_data[user_id]

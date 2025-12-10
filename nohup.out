@@ -1,0 +1,159 @@
+/root/bo2sale/./bot.py:33: DeprecationWarning: Passing `parse_mode`, `disable_web_page_preview` or `protect_content` to Bot initializer is deprecated. This arguments will be removed in 3.5.0 version
+Use `default=DefaultBotProperties(...)` instead.
+  bot = Bot(token=API_TOKEN, parse_mode=ParseMode.HTML)
+INFO:aiogram.dispatcher:Start polling
+INFO:aiogram.dispatcher:Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+INFO:aiogram.event:Update id=766624478 is handled. Duration 371 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624479 is handled. Duration 78 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624480 is handled. Duration 0 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624481 is handled. Duration 95 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624482 is handled. Duration 175 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624483 is handled. Duration 72 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624484 is handled. Duration 132 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624485 is handled. Duration 383 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624486 is not handled. Duration 13 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624487 is handled. Duration 287 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624488 is handled. Duration 226 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624489 is handled. Duration 8 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624490 is handled. Duration 100 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624491 is handled. Duration 168 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624492 is handled. Duration 73 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624493 is handled. Duration 145 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624494 is handled. Duration 551 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624495 is not handled. Duration 7 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624496 is handled. Duration 211 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624497 is handled. Duration 189 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624498 is handled. Duration 0 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624499 is not handled. Duration 1 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624500 is handled. Duration 248 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624501 is handled. Duration 138 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624502 is handled. Duration 309 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624503 is handled. Duration 152 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624504 is handled. Duration 382 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624505 is not handled. Duration 2 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624506 is not handled. Duration 1 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624507 is not handled. Duration 1 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624508 is not handled. Duration 0 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624509 is not handled. Duration 1 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624510 is not handled. Duration 0 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624511 is not handled. Duration 1 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624512 is not handled. Duration 1 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624513 is not handled. Duration 1 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624514 is not handled. Duration 7 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624515 is handled. Duration 197 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624516 is handled. Duration 80 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624517 is not handled. Duration 2 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624518 is handled. Duration 191 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624519 is handled. Duration 174 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624520 is handled. Duration 4 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624521 is handled. Duration 101 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624522 is handled. Duration 130 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624523 is handled. Duration 84 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624524 is handled. Duration 143 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624525 is handled. Duration 348 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624526 is handled. Duration 233 ms by bot id=7624769819
+/root/bo2sale/./bot.py:34: DeprecationWarning: Passing `parse_mode`, `disable_web_page_preview` or `protect_content` to Bot initializer is deprecated. This arguments will be removed in 3.5.0 version
+Use `default=DefaultBotProperties(...)` instead.
+  bot = Bot(token=API_TOKEN, parse_mode=ParseMode.HTML)
+INFO:aiogram.dispatcher:Start polling
+INFO:aiogram.dispatcher:Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+INFO:aiogram.event:Update id=766624527 is handled. Duration 248 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624528 is handled. Duration 192 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624529 is handled. Duration 70 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624530 is handled. Duration 127 ms by bot id=7624769819
+/root/bo2sale/./bot.py:35: DeprecationWarning: Passing `parse_mode`, `disable_web_page_preview` or `protect_content` to Bot initializer is deprecated. This arguments will be removed in 3.5.0 version
+Use `default=DefaultBotProperties(...)` instead.
+  bot = Bot(token=API_TOKEN, parse_mode=ParseMode.HTML)
+INFO:aiogram.dispatcher:Start polling
+INFO:aiogram.dispatcher:Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+INFO:aiogram.event:Update id=766624567 is handled. Duration 276 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624568 is handled. Duration 87 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624569 is handled. Duration 249 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624570 is handled. Duration 271 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624571 is handled. Duration 289 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624572 is handled. Duration 235 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624573 is handled. Duration 243 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624574 is not handled. Duration 1 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624575 is not handled. Duration 1 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624576 is handled. Duration 241 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624577 is handled. Duration 0 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624578 is handled. Duration 80 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624579 is handled. Duration 388 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624580 is handled. Duration 81 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624581 is handled. Duration 197 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624582 is handled. Duration 196 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624583 is handled. Duration 514 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624584 is handled. Duration 8 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624585 is handled. Duration 8 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624586 is handled. Duration 241 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624587 is handled. Duration 148 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624588 is handled. Duration 81 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624589 is handled. Duration 159 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624590 is handled. Duration 446 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624591 is handled. Duration 289 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624592 is handled. Duration 2 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624593 is handled. Duration 202 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624594 is handled. Duration 133 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624595 is handled. Duration 111 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624596 is handled. Duration 294 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624597 is handled. Duration 377 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624598 is handled. Duration 234 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624599 is handled. Duration 3 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624600 is handled. Duration 233 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624601 is handled. Duration 187 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624602 is handled. Duration 132 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624603 is handled. Duration 140 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624604 is handled. Duration 474 ms by bot id=7624769819
+/root/bo2sale/./bot.py:35: DeprecationWarning: Passing `parse_mode`, `disable_web_page_preview` or `protect_content` to Bot initializer is deprecated. This arguments will be removed in 3.5.0 version
+Use `default=DefaultBotProperties(...)` instead.
+  bot = Bot(token=API_TOKEN, parse_mode=ParseMode.HTML)
+INFO:aiogram.dispatcher:Start polling
+INFO:aiogram.dispatcher:Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+INFO:aiogram.event:Update id=766624605 is handled. Duration 269 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624606 is handled. Duration 66 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624607 is handled. Duration 166 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624608 is not handled. Duration 4 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624609 is not handled. Duration 11 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624610 is handled. Duration 212 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624611 is handled. Duration 135 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624612 is handled. Duration 1 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624613 is handled. Duration 1 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624614 is handled. Duration 211 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624615 is handled. Duration 222 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624616 is handled. Duration 105 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624617 is handled. Duration 216 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624618 is handled. Duration 420 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624619 is handled. Duration 183 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624620 is handled. Duration 120 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624621 is handled. Duration 60 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624622 is not handled. Duration 1 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624623 is not handled. Duration 1 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624624 is not handled. Duration 4 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624625 is handled. Duration 209 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624626 is handled. Duration 187 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624627 is not handled. Duration 6 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624628 is not handled. Duration 2 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624629 is handled. Duration 199 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624630 is not handled. Duration 0 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624631 is not handled. Duration 5 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624632 is handled. Duration 194 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624633 is handled. Duration 87 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624634 is handled. Duration 208 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624635 is handled. Duration 177 ms by bot id=7624769819
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7624769819)
+INFO:aiogram.dispatcher:Connection established (tryings = 1, bot id = 7624769819)
+/root/bo2sale/./bot.py:35: DeprecationWarning: Passing `parse_mode`, `disable_web_page_preview` or `protect_content` to Bot initializer is deprecated. This arguments will be removed in 3.5.0 version
+Use `default=DefaultBotProperties(...)` instead.
+  bot = Bot(token=API_TOKEN, parse_mode=ParseMode.HTML)
+INFO:aiogram.dispatcher:Start polling
+INFO:aiogram.dispatcher:Run polling for bot @bo2salebot id=7624769819 - 'bo2salebot'
+INFO:aiogram.event:Update id=766624636 is handled. Duration 253 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624637 is handled. Duration 91 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624638 is handled. Duration 219 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624639 is handled. Duration 243 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624640 is handled. Duration 0 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624641 is not handled. Duration 3 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624642 is not handled. Duration 0 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624643 is handled. Duration 2 ms by bot id=7624769819
+INFO:aiogram.event:Update id=766624644 is handled. Duration 0 ms by bot id=7624769819

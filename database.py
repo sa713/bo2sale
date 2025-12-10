@@ -21,6 +21,17 @@ def init_db():
     conn.commit()
     conn.close()
 
+def get_post(post_id):
+    conn = sqlite3.connect(DB_NAME)
+    c = conn.cursor()
+    c.execute(f'''
+        SELECT * FROM {DB_PREFIX}_posts WHERE id = ?
+    ''', (post_id,))
+    result = c.fetchone()
+    conn.close()
+    return result
+
+
 def save_post(user_id, username, description, category, pickup, price, photos):
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
