@@ -12,6 +12,8 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.storage.memory import MemoryStorage
 from datetime import datetime, timedelta
+from logging.handlers import RotatingFileHandler
+import os
 import asyncio
 from config import (
     API_TOKEN, CHANNEL_ID, ALLOWED_CHAT_ID, CATEGORIES,
@@ -22,6 +24,22 @@ from database import (
     init_db, save_post as save_post_db, delete_post as delete_post_db,
     get_post_by_channel_message_id, set_channel_message_id
 )
+# Создаём путь к лог-файлу
+LOG_FILE = os.path.join(os.path.dirname(__file__), "bot.log")
+
+# Настройка логирования
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+file_handler = RotatingFileHandler(LOG_FILE, maxBytes=5*1024*1024, backupCount=3)
+file_handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
+
+logger.addHandler(file_handler)
+
+# Чтобы логи шли и в консоль (journald), можно оставить:
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
+logger.addHandler(console_handler)
 
 # --- Инициализация ---
 bot = Bot(token=API_TOKEN, parse_mode=ParseMode.HTML)
