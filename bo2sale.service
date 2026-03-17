@@ -1,0 +1,14 @@
+[Unit]
+Description=BO2 Sale Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/bo2sale
+ExecStart=/usr/bin/python3 /root/bo2sale/bot.py
+Restart=on-failure
+RestartSec=5
+User=root
+
+[Install]
+WantedBy=multi-user.target

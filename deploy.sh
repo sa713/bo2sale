@@ -1,29 +1,29 @@
 #!/bin/bash
+set -euo pipefail
 
 SERVICE_NAME="bo2sale"
 BOT_PATH="/root/bo2sale"
 PYTHON_BIN="/usr/bin/python3"
+SERVICE_FILE="$BOT_PATH/$SERVICE_NAME.service"
 
 echo "Запуск деплоя сервиса $SERVICE_NAME..."
 
-# Копируем файлы (если надо, например, из git или локальной папки)
-# git clone / обновить проект - пример, если есть git
+if [[ ! -f "$BOT_PATH/requirements.txt" ]]; then
+  echo "Не найден requirements.txt в $BOT_PATH"
+  exit 1
+fi
 
-# Создаем виртуальное окружение (опционально)
-# python3 -m venv $BOT_PATH/venv
-# source $BOT_PATH/venv/bin/activate
-# pip install -r $BOT_PATH/requirements.txt
+if [[ ! -f "$SERVICE_FILE" ]]; then
+  echo "Не найден unit-файл: $SERVICE_FILE"
+  exit 1
+fi
 
-# Устанавливаем зависимости
-pip install -r $BOT_PATH/requirements.txt
+$PYTHON_BIN -m pip install -r "$BOT_PATH/requirements.txt"
+cp "$SERVICE_FILE" "/etc/systemd/system/$SERVICE_NAME.service"
 
-# Копируем systemd unit (если нужно)
-cp $BOT_PATH/$SERVICE_NAME.service /etc/systemd/system/
-
-# Перезагружаем systemd
 systemctl daemon-reload
-systemctl enable $SERVICE_NAME.service
-systemctl restart $SERVICE_NAME.service
+systemctl enable "$SERVICE_NAME.service"
+systemctl restart "$SERVICE_NAME.service"
 
 echo "Деплой завершён. Статус сервиса:"
-systemctl status $SERVICE_NAME.service --no-pager
+systemctl status "$SERVICE_NAME.service" --no-pager

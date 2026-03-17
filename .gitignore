@@ -1,0 +1,16 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+
+# Runtime data
+*.db
+*.log
+nohup.out
+.bot.lock
+
+# Local config/env
+.env
