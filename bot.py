@@ -2,6 +2,7 @@ import asyncio
 import fcntl
 import logging
 import os
+import socket
 import sqlite3
 from contextlib import suppress
 from datetime import datetime, timedelta
@@ -11,7 +12,9 @@ from typing import Any, Dict, List, Optional
 
 from aiogram import Bot, Dispatcher, F, types
 from aiogram.client.default import DefaultBotProperties
+from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.enums import ParseMode
+from aiogram.exceptions import TelegramNetworkError
 from aiogram.filters import CommandStart
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
@@ -146,7 +149,11 @@ ensure_posts_schema()
 bot = Bot(
     token=API_TOKEN,
     default=DefaultBotProperties(parse_mode=ParseMode.HTML),
+    session=AiohttpSession(),
 )
+# У части VPS нестабилен IPv6-маршрут до api.telegram.org, поэтому фиксируем IPv4.
+bot.session._connector_init["family"] = socket.AF_INET
+bot.session._connector_init["ttl_dns_cache"] = 300
 dp = Dispatcher(storage=SQLiteStorage(DB_NAME))
 
 
@@ -221,12 +228,24 @@ def parse_message_ids(message_id: Optional[int], message_ids_str: Optional[str])
 
 
 async def check_membership(user_id: int) -> bool:
-    try:
-        member = await bot.get_chat_member(ALLOWED_CHAT_ID, user_id)
-        return member.status not in ("left", "kicked")
-    except Exception:
-        logger.exception("Ошибка при проверке участия в чате")
-        return False
+    for attempt in range(1, 4):
+        try:
+            member = await bot.get_chat_member(ALLOWED_CHAT_ID, user_id)
+            return member.status not in ("left", "kicked")
+        except TelegramNetworkError:
+            logger.exception(
+                "Сетевая ошибка при проверке участия в чате (попытка %s/3)",
+                attempt,
+            )
+            if attempt < 3:
+                await asyncio.sleep(0.6 * attempt)
+                continue
+            raise
+        except Exception:
+            logger.exception("Ошибка при проверке участия в чате")
+            return False
+
+    return False
 
 
 async def insert_pending_post(data: Dict[str, Any], post_date: str) -> int:
@@ -319,7 +338,14 @@ async def callback_rules(call: types.CallbackQuery) -> None:
 @dp.callback_query(F.data == "create_post")
 async def callback_create_post(call: types.CallbackQuery, state: FSMContext) -> None:
     user_id = call.from_user.id
-    is_member = await check_membership(user_id)
+    try:
+        is_member = await check_membership(user_id)
+    except TelegramNetworkError:
+        await call.message.answer(
+            "Сейчас проблемы с соединением к Telegram API.\n"
+            "Попробуй ещё раз через минуту."
+        )
+        return
 
     if not is_member:
         await call.message.answer(
